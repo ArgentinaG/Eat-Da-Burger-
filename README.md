@@ -25,21 +25,6 @@ When trying to connect remotely to your Heroku database on an open network such 
 
 * [Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM).
 
-### Commits
-
-Having an active and healthy commit history on GitHub is important for your future job search. It is also extremely important for making sure your work is saved in your repository. If something breaks, committing often ensures you are able to go back to a working version of your code.
-
-* Committing often is a signal to employers that you are actively working on your code and learning.
-
-  * We use the mantra “commit early and often.”  This means that when you write code that works, add it and commit it!
-
-  * Numerous commits allow you to see how your app is progressing and give you a point to revert to if anything goes wrong.
-
-* Be clear and descriptive in your commit messaging.
-
-  * When writing a commit message, avoid vague messages like "fixed." Be descriptive so that you and anyone else looking at your repository knows what happened with each commit.
-
-* We would like you to have well over 200 commits by graduation, so commit early and often!
 
 ### Submission on BCS
 
@@ -61,14 +46,14 @@ Having an active and healthy commit history on GitHub is important for your futu
 
 
 
-7. Require the following npm packages inside of the server.js file:
-   * express
+7. Required the Express npm packages inside of the server.js file:
+   
 
 #### DB Setup
 
-1. Inside your `burger` directory, create a folder named `db`.
+1. Created  `db` folder with the following files:
 
-2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
+    schema.sql - detailing SQL queries 
 
    * Create the `burgers_db`.
    * Switch to or use the `burgers_db`.
@@ -77,7 +62,10 @@ Having an active and healthy commit history on GitHub is important for your futu
      * **burger_name**: a string.
      * **devoured**: a boolean.
 
-3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
+    seeds.sql - detailing insert queries that populate the 'burgers'
+    table with 6 entries 
+
+
 
 4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
 
@@ -95,14 +83,11 @@ Having an active and healthy commit history on GitHub is important for your futu
 
 #### Config Setup
 
-1. Inside your `burger` directory, create a folder named `config`.
+1. Created `config` folder with the connection.js file
 
-2. Create a `connection.js` file inside `config` directory.
-
-   * Inside the `connection.js` file, setup the code to connect Node to MySQL.
-
-   * Export the connection.
-
+2. Setup code that connected Node to MySql within the connections.js       file
+3. Exported the connection  
+   
 3. Create an `orm.js` file inside `config` directory.
 
    * Import (require) `connection.js` into `orm.js`
