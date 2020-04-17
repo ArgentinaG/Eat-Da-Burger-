@@ -88,7 +88,7 @@ When trying to connect remotely to your Heroku database on an open network such 
 2. Setup code that connected Node to MySql within the connections.js       file
 3. Exported the connection  
    
-3. Create an `orm.js` file inside `config` directory.
+3. Created an `orm.js` file inside `config` directory.
 
    * Import (require) `connection.js` into `orm.js`
 
