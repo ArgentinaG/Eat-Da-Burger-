@@ -114,9 +114,9 @@ When trying to connect remotely to your Heroku database on an open network such 
 
 #### Controller setup
 
-1. Inside your `burger` directory, create a folder named `controllers`.
+1. Created a folder named `controllers` 
 
-2. In `controllers`, create the `burgers_controller.js` file.
+2. Created `burgers_controller.js` file within the 'controllers' folder
 
 3. Inside the `burgers_controller.js` file, import the following:
 
