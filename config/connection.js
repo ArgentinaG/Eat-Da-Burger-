@@ -5,7 +5,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
 
-  port: 5000,
+  port: 3306,
 
   // Your username
   user: "root",
@@ -18,20 +18,10 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
-  readColleges();
 });
 
-function readColleges() {
-  connection.query("SELECT name FROM colleges", function(err, res) {
-    if (err) throw err;
-
-    // Log all results of the SELECT statement
-    console.log(res);
-    connection.end();
-  });
-}
-
 //  Export the connection  
+module.export = connection;
 
 
 

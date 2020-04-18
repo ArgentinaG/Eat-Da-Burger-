@@ -1,99 +1,49 @@
-// Setup the `index.handlebars` to have the template that Handlebars can render onto.
+ {{!-- Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
 
-// Create a button in `index.handlebars` that will submit the user input into the database.
-// Burger name
-<h1>Burger</h1>
-
-<ul>
-    {{#each plans}}
-    <li>
-        <p>
-            {{this.id}}. {{this.plan}}
-
-            <button data-planid="{{this.id}}" class="delplan">Delete Plan!</button>
-        </p>
-    </li>
-    {{/each}}
-</ul>
-
-<h2>Create a Plan</h2>
-<form id="createplan" class="button-size">
-    <textarea type="text" name="plan"></textarea>
-    <button type="submit">Save Plan!</button>
-</form>
-
-<h2>Update a Plan</h2>
-<form id="updateplan" class="button-size">
-    <select name="id">
-        {{#each plans}}
-        <option value="{{this.id}}">{{this.plan}}</option>
-        {{/each}}
-    </select>
-    <textarea type="text" name="plan" placeholder="plan"></textarea>
-    <button type="submit">Update Plan!</button>
-</form>
-
-<script type="text/javascript">
-    $(".delplan").on("click", function (event) {
-        // Get the ID from the button.
-        // This is shorthand for $(this).attr("data-planid")
-        var id = $(this).data("planid");
-
-        // Send the DELETE request.
-        $.ajax("/api/plans/" + id, {
-            type: "DELETE"
-        }).then(
-            function () {
-                console.log("deleted id ", id);
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
-
-    $("#createplan").on("submit", function (event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
-
-        // [name=plan] will find an element with a "name" attribute equal to the string "plan"
-        var newPlan = {
-            plan: $("#createplan [name=plan]").val().trim()
-        };
-
-        // Send the POST request.
-        $.ajax("/api/plans", {
-            type: "POST",
-            data: newPlan
-        }).then(
-            function () {
-                console.log("created new plan");
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
-
-    $("#updateplan").on("submit", function (event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
-
-        // Get the ID by finding an element with a "name" attribute equal to the string "id"
-        var id = $("[name=id]").val().trim();
-
-        var updatedPlan = {
-            plan: $("#updateplan [name=plan]").val().trim()
-        };
-
-        // Send the PUT request.
-        $.ajax("/api/plans/" + id, {
-            type: "PUT",
-            data: updatedPlan
-        }).then(
-            function () {
-                console.log("updated id ", id);
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
-</script>
+{{!-- Create a button in `index.handlebars` that will submit the user input into the database. --}}
+ {{!-- Burger name --}}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center" id="top-bar">
+			<img src="/assets/images/burger.png" alt="burger" />
+			<h1> Eat-Da-Burger! </h1>
+		</div>
+		<div class="col-md-6 text-center" class="task">
+			<div class="row">
+			  {{#each burger_data}}
+			  	{{#unless this.devoured}}
+				<div class="col-md-9 text-center">
+					<pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+				  		<!-- {{this.Date}} -->
+				</div>
+				<div class="col-md-3 text-center">
+					<form class="devour-form button-size">
+						<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
+				{{/unless}}
+			  {{/each}}
+			</div>
+		</div>
+		<div class="col-md-6 text-center" class="task">
+			  {{#each burger_data}}
+			  	{{#if this.devoured}}
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+				{{/if}}
+			  {{/each}}
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center enter_section">
+			<form action="/burgers/create" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+			</form>
+			<p>Enter a burger you want to eat Click the "Submit" button.</p>
+		</div>
+	</div>
+</div>

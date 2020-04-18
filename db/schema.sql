@@ -1,9 +1,5 @@
-//Write SQL queries this file that do the following:
+-- Write SQL queries this file that do the following:--
 
-//   * Create the `burgers_db`.
-//   * Switch to or use the `burgers_db`.
-//   * Create a `burgers` table with these fields:
-//    
 -- Drops the burgers_db if it already exists --
 DROP DATABASE IF EXISTS burgers_db;
 -- Create a database called burgers_db --

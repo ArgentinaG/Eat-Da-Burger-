@@ -15,9 +15,9 @@ app.engine("handlebars",exphbs({defaultLayout:"main"}));
 // Set()
 app.set("view engine","handlebars");
 // This requires your route file
-// var burgerRoute = require("./controllers/burgers_controller");
+var burgerRoute = require("./controllers/burgers_controller");
 // Utilize your routes file
-// app.use(burgerRoute);
+ app.use(burgerRoute);
 app.listen(PORT, () => {
 console.log("Server Works")
 });

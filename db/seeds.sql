@@ -2,20 +2,20 @@
 
 
 -- Creates new rows
-INSERT INTO programming_languages (language, rating)
-VALUES ("HTML", 95);
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Cheese Burger", TRUE);
 
-INSERT INTO programming_languages (language, rating)
-VALUES ("JS", 99);
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Double Meat Burger", TRUE);
 
-INSERT INTO programming_languages (language, rating)
-VALUES ("JQuery", 98);
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Quarter Pounder Burger", TRUE);
 
-INSERT INTO programming_languages (language, rating)
-VALUES ("MySQL", 70);
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Porky's Burger", False);
 
-INSERT INTO programming_languages (language, rating)
-VALUES ("MySQL", 70);
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Bacon Burger", TRUE);
 
-INSERT INTO programming_languages (language, rating)
-VALUES ("MySQL", 70);
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Impossible Burger", False);
