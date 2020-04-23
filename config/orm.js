@@ -1,6 +1,6 @@
 // Object Relational Mapper (ORM)
 //* Import (require) `connection.js` into `orm.js`
-var connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 // The ?? signs are for swapping out table or column names
 // The ? signs are for swapping out other values
@@ -61,3 +61,5 @@ var orm = {
   }
 }
 module.exports = orm;
+
+
